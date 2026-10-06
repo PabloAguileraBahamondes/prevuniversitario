@@ -40,6 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (idSolicitado) abrirTema(idSolicitado);
 });
 
+const CLAVE_SUBTEMAS_DOMINADOS = "preuM1_subtemasDominados_v1";
+
 function abrirTema(id) {
     const tema = obtenerTema(id);
     if (!tema) {
@@ -51,6 +53,27 @@ function abrirTema(id) {
     const contenidos = tema.contenidos.map((contenido) => `<li>${escaparHTML(contenido)}</li>`).join("");
     const preguntas = preguntasM1.filter((pregunta) => pregunta.temaId === tema.id);
     const numeroPregunta = preguntas.length ? preguntas[0].id : "";
+    const dominados = obtenerSubtemasDominados();
+    const lecciones = tema.lecciones.map((leccion, indice) => {
+        const clave = `${tema.id}:${indice}`;
+        const estaDominado = dominados.includes(clave);
+        return `
+            <article class="sublesson-card" id="sublesson-${indice}" data-sublesson="${escaparHTML(clave)}">
+                <div class="sublesson-heading">
+                    <span class="sublesson-number">${String(indice + 1).padStart(2, "0")}</span>
+                    <h4>${escaparHTML(leccion.titulo)}</h4>
+                </div>
+                <p>${escaparHTML(leccion.idea)}</p>
+                <div class="sublesson-example"><strong>Ejemplo:</strong> ${escaparHTML(leccion.ejemplo)}</div>
+                <div class="sublesson-solution"><strong>Desarrollo:</strong> ${escaparHTML(leccion.solucion)}</div>
+                <button class="sublesson-master${estaDominado ? " is-mastered" : ""}" type="button" data-sublesson-toggle="${escaparHTML(clave)}" aria-pressed="${estaDominado}">
+                    <span aria-hidden="true">${estaDominado ? "✓" : "○"}</span>
+                    <span>${estaDominado ? "Lo domino" : "Marcar como dominado"}</span>
+                </button>
+            </article>`;
+    }).join("");
+    const dominadosEnTema = tema.lecciones.reduce((total, leccion, indice) =>
+        total + (dominados.includes(`${tema.id}:${indice}`) ? 1 : 0), 0);
 
     dialogo.innerHTML = `
         <div class="lesson-dialog-head">
@@ -60,11 +83,11 @@ function abrirTema(id) {
         <div class="lesson-video">
             <span class="pill">TUTOR NARRADO · PIZARRA DE ESTUDIO</span>
             <div class="lesson-scene" id="lesson-scene" data-scene="0" data-topic="${tema.id}">
-                <div class="scene-steps" aria-label="Etapas de la clase">
-                    <span class="scene-step active">01 · Idea</span>
-                    <span class="scene-step">02 · Ejemplo</span>
-                    <span class="scene-step">03 · Resolución</span>
-                    <span class="scene-step">04 · Atención</span>
+                <div class="narration-progress">
+                    <span id="narration-progress-label">Clase completa · ${tema.lecciones.length + 2} segmentos</span>
+                    <div class="narration-track" role="progressbar" aria-label="Avance de la narración" aria-valuemin="0" aria-valuemax="${tema.lecciones.length + 2}" aria-valuenow="0">
+                        <span id="narration-progress-fill"></span>
+                    </div>
                 </div>
                 <div class="scene-grid">
                     <div class="scene-visual" aria-hidden="true">
@@ -89,10 +112,21 @@ function abrirTema(id) {
             <section><h3>La idea clave</h3><p>${escaparHTML(tema.idea)}</p></section>
             <section><h3>Temas que revisarás</h3><ul>${contenidos}</ul></section>
             <section class="example-box"><h3>Ejemplo resuelto</h3><p><strong>${escaparHTML(tema.ejemplo)}</strong></p><p>${escaparHTML(tema.solucion)}</p></section>
+            <section class="sublesson-route" aria-labelledby="sublesson-route-title">
+                <div class="sublesson-route-head">
+                    <div><span class="eyebrow">RUTA M1 · TEMA ${String(tema.id).padStart(2, "0")}</span><h3 id="sublesson-route-title">Cada contenido, paso a paso</h3></div>
+                    <span class="mastery-count" id="mastery-count">${dominadosEnTema}/${tema.lecciones.length} dominados</span>
+                </div>
+                <div class="mastery-track" role="progressbar" aria-label="Contenidos dominados en este tema" aria-valuemin="0" aria-valuemax="${tema.lecciones.length}" aria-valuenow="${dominadosEnTema}">
+                    <span id="mastery-fill" style="width:${Math.round(dominadosEnTema / tema.lecciones.length * 100)}%"></span>
+                </div>
+                <p class="sublesson-intro">Estudia la idea, sigue el ejemplo resuelto y marca cada punto cuando ya puedas explicarlo por tu cuenta.</p>
+                <div class="sublesson-list">${lecciones}</div>
+            </section>
             <section class="warning-box"><h3>Ojo con este error</h3><p>${escaparHTML(tema.error)}</p></section>
         </div>
         <div class="lesson-dialog-foot">
-            <span class="muted">Explicación pedagógica original alineada al temario M1.</span>
+            <span class="muted">Explicaciones y ejemplos originales alineados al temario PAES M1; no son preguntas oficiales DEMRE.</span>
             <a class="button button-primary" href="practica.html?pregunta=${encodeURIComponent(numeroPregunta)}">Practicar este tema →</a>
         </div>`;
 
@@ -104,6 +138,29 @@ function abrirTema(id) {
     dialogo.addEventListener("click", (evento) => {
         if (evento.target === dialogo && "speechSynthesis" in window) window.speechSynthesis.cancel();
     }, { once: true });
+    dialogo.oncancel = () => {
+        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    };
+
+    dialogo.querySelector(".sublesson-list").addEventListener("click", (evento) => {
+        const boton = evento.target.closest("[data-sublesson-toggle]");
+        if (!boton) return;
+        const clave = boton.dataset.sublessonToggle;
+        const actualizados = obtenerSubtemasDominados();
+        const yaDominado = actualizados.includes(clave);
+        const nuevos = yaDominado
+            ? actualizados.filter((elemento) => elemento !== clave)
+            : [...actualizados, clave];
+        localStorage.setItem(CLAVE_SUBTEMAS_DOMINADOS, JSON.stringify(nuevos));
+        const cuenta = nuevos.filter((elemento) => elemento.startsWith(`${tema.id}:`)).length;
+        boton.classList.toggle("is-mastered", !yaDominado);
+        boton.setAttribute("aria-pressed", String(!yaDominado));
+        boton.innerHTML = `<span aria-hidden="true">${yaDominado ? "○" : "✓"}</span><span>${yaDominado ? "Marcar como dominado" : "Lo domino"}</span>`;
+        dialogo.querySelector("#mastery-count").textContent = `${cuenta}/${tema.lecciones.length} dominados`;
+        const barra = dialogo.querySelector(".mastery-track");
+        barra.setAttribute("aria-valuenow", String(cuenta));
+        dialogo.querySelector("#mastery-fill").style.width = `${Math.round(cuenta / tema.lecciones.length * 100)}%`;
+    });
 
     dialogo.querySelector("#speak-lesson").addEventListener("click", () => narrarLeccion(tema, dialogo));
     dialogo.querySelector("#stop-lesson").addEventListener("click", () => {
@@ -123,15 +180,26 @@ function narrarLeccion(tema, dialogo) {
     }
 
     window.speechSynthesis.cancel();
-    let detenida = false;
     const etapas = [
         { titulo: "Idea clave", texto: tema.idea, pizarra: tema.titulo },
-        { titulo: "Ejemplo", texto: tema.ejemplo, pizarra: tema.ejemplo },
-        { titulo: "Resolución paso a paso", texto: tema.solucion, pizarra: tema.solucion },
+        ...tema.lecciones.map((leccion, indice) => ({
+            titulo: `Subtema ${indice + 1} de ${tema.lecciones.length}: ${leccion.titulo}`,
+            texto: `${leccion.idea} Ejemplo: ${leccion.ejemplo} Desarrollo: ${leccion.solucion}`,
+            pizarra: leccion.ejemplo,
+            subtema: indice
+        })),
         { titulo: "Error frecuente", texto: tema.error, pizarra: tema.error }
     ];
 
-    etapas.forEach((etapa, indice) => {
+    let indice = 0;
+    const reproducirSiguiente = () => {
+        if (indice >= etapas.length) {
+            estado.textContent = "Fin de la clase completa. Repasa los puntos marcados y continúa con la práctica.";
+            escena.classList.remove("scene-playing");
+            return;
+        }
+        const indiceActual = indice;
+        const etapa = etapas[indiceActual];
         const narracion = new SpeechSynthesisUtterance(etapa.texto);
         narracion.lang = "es-CL";
         narracion.rate = 0.92;
@@ -139,34 +207,59 @@ function narrarLeccion(tema, dialogo) {
             pizarra.textContent = etapa.pizarra;
             subtitulo.textContent = etapa.texto;
             dialogo.querySelector("#scene-kicker").textContent = etapa.titulo.toLocaleUpperCase("es");
-            estado.textContent = `${etapa.titulo}: sigue la explicación en la pizarra.`;
-            escena.dataset.scene = String(indice);
+            estado.textContent = `Segmento ${indiceActual + 1} de ${etapas.length}: ${etapa.titulo}.`;
+            escena.dataset.scene = String(indiceActual);
             escena.dataset.topic = String(tema.id);
-            escena.querySelectorAll(".scene-step").forEach((paso, pasoIndice) => {
-                paso.classList.toggle("active", pasoIndice === indice);
-                paso.classList.toggle("complete", pasoIndice < indice);
-            });
+            const avance = escena.querySelector(".narration-track");
+            avance.setAttribute("aria-valuenow", String(indiceActual + 1));
+            escena.querySelector("#narration-progress-label").textContent = `Segmento ${indiceActual + 1} / ${etapas.length}`;
+            escena.querySelector("#narration-progress-fill").style.width = `${Math.round((indiceActual + 1) / etapas.length * 100)}%`;
+            dialogo.querySelectorAll(".sublesson-card.is-reading").forEach((tarjeta) => tarjeta.classList.remove("is-reading"));
+            if (etapa.subtema !== undefined) {
+                const tarjeta = dialogo.querySelector(`#sublesson-${etapa.subtema}`);
+                tarjeta.classList.add("is-reading");
+                tarjeta.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            } else {
+                dialogo.querySelector(".sublesson-card.is-reading")?.classList.remove("is-reading");
+            }
             escena.classList.remove("scene-playing");
             void escena.offsetWidth;
             escena.classList.add("scene-playing");
         };
         narracion.onend = () => {
-            if (indice === etapas.length - 1 && !detenida) {
-                estado.textContent = "Fin de la explicación. Repasa el ejemplo o responde una pregunta de práctica.";
-            }
+            if (indice !== indiceActual) return;
+            indice += 1;
+            reproducirSiguiente();
         };
         narracion.onerror = (evento) => {
             if (evento.error === "canceled" || evento.error === "interrupted") return;
-            if (!detenida) estado.textContent = "No se pudo iniciar la voz. Prueba con otro navegador o continúa leyendo la explicación.";
+            estado.textContent = `La voz se detuvo en el segmento ${indiceActual + 1}. Puedes volver a iniciarla o seguir leyendo.`;
         };
         window.speechSynthesis.speak(narracion);
-    });
+    };
+
     dialogo.querySelector("#stop-lesson").onclick = () => {
-        detenida = true;
         window.speechSynthesis.cancel();
         escena.classList.remove("scene-playing");
+        dialogo.querySelector(".sublesson-card.is-reading")?.classList.remove("is-reading");
         estado.textContent = "Narración detenida. Puedes volver a reproducirla cuando quieras.";
     };
+    reproducirSiguiente();
+}
+
+function obtenerSubtemasDominados() {
+    const guardado = localStorage.getItem(CLAVE_SUBTEMAS_DOMINADOS);
+    if (!guardado) return [];
+    try {
+        const datos = JSON.parse(guardado);
+        if (!Array.isArray(datos) || datos.some((elemento) => typeof elemento !== "string")) {
+            throw new TypeError("El registro de subtemas debe ser una lista de identificadores.");
+        }
+        return datos;
+    } catch (error) {
+        console.error("No se pudo leer el registro de subtemas dominados.", error);
+        return [];
+    }
 }
 
 function crearDialogoLeccion() {

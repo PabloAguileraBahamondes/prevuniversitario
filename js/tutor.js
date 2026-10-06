@@ -180,6 +180,12 @@ function responderConsultaM1(consulta) {
     }
 
     const tema = puntajes[0].tema;
+    const subtema = tema.lecciones
+        .map((leccion) => ({
+            leccion,
+            puntaje: calcularCoincidenciaSubtema(texto, leccion.titulo)
+        }))
+        .sort((a, b) => b.puntaje - a.puntaje)[0];
     const pideEjercicio = /\b(ejercicio|pregunta|practica|practicar|entrenar|desafio)\b/.test(texto);
     const preguntasTema = Array.isArray(preguntasM1)
         ? preguntasM1.filter((pregunta) => pregunta.temaId === tema.id)
@@ -197,6 +203,18 @@ function responderConsultaM1(consulta) {
             pregunta,
             texto: `¡Practiquemos ${tema.titulo}! ${pregunta.enunciado}\n\n${alternativas}\n\nElige una alternativa y trata de explicar por qué antes de abrir la solución.`
         };
+    }
+
+    if (subtema && subtema.puntaje > 0) {
+        const leccion = subtema.leccion;
+        const textoRespuesta = [
+            `Vamos con ${leccion.titulo}, del tema ${tema.titulo}.`,
+            `Idea clave: ${leccion.idea}`,
+            `Ejemplo: ${leccion.ejemplo}`,
+            `Desarrollo: ${leccion.solucion}`,
+            `Puedes abrir la ruta completa del tema ${tema.id} para estudiar los demás contenidos.`
+        ].join("\n\n");
+        return { tema, texto: textoRespuesta };
     }
 
     const textoRespuesta = [
@@ -234,6 +252,14 @@ function calcularCoincidenciaTutor(consulta, tema) {
         }
     });
     return puntaje;
+}
+
+function calcularCoincidenciaSubtema(consulta, titulo) {
+    const palabras = consulta.split(/\s+/).filter((palabra) =>
+        palabra.length > 2 && !PALABRAS_VACIAS_TUTOR.has(palabra)
+    );
+    const nombre = normalizarTextoTutor(titulo);
+    return palabras.reduce((puntaje, palabra) => puntaje + (nombre.includes(palabra) ? 1 : 0), 0);
 }
 
 function normalizarTextoTutor(texto) {

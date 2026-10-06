@@ -1753,6 +1753,173 @@ body {
     border-color: rgba(255, 194, 90, 0.2);
 }
 
+.lesson-content .sublesson-route {
+    display: grid;
+    gap: 13px;
+    border-color: rgba(108, 99, 255, 0.28);
+    background: linear-gradient(145deg, rgba(108, 99, 255, 0.08), var(--card) 55%);
+}
+
+.sublesson-route-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.sublesson-route-head .eyebrow {
+    color: var(--primary-light);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.sublesson-route-head h3 {
+    margin: 5px 0 0;
+    font-size: 17px;
+}
+
+.mastery-count {
+    flex: 0 0 auto;
+    padding: 7px 10px;
+    border: 1px solid rgba(56, 217, 150, 0.2);
+    border-radius: 99px;
+    background: rgba(56, 217, 150, 0.08);
+    color: var(--success);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.mastery-track,
+.narration-track {
+    height: 6px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mastery-track > span,
+.narration-track > span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--primary), var(--success));
+    transition: width 0.3s ease;
+}
+
+.sublesson-intro {
+    margin: 0;
+}
+
+.sublesson-list {
+    display: grid;
+    gap: 10px;
+}
+
+.sublesson-card {
+    display: grid;
+    gap: 9px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(9, 14, 27, 0.46);
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sublesson-card.is-reading {
+    border-color: var(--primary-light);
+    background: rgba(108, 99, 255, 0.12);
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.12);
+}
+
+.sublesson-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sublesson-number {
+    display: grid;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    border-radius: 8px;
+    background: rgba(108, 99, 255, 0.16);
+    color: var(--primary-light);
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.sublesson-heading h4 {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.sublesson-card > p,
+.sublesson-example,
+.sublesson-solution {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.sublesson-example,
+.sublesson-solution {
+    padding: 9px 11px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.sublesson-example strong {
+    color: var(--primary-light);
+}
+
+.sublesson-solution strong {
+    color: var(--success);
+}
+
+.sublesson-master {
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    gap: 7px;
+    min-height: 32px;
+    padding: 5px 10px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.sublesson-master:hover,
+.sublesson-master.is-mastered {
+    border-color: rgba(56, 217, 150, 0.45);
+    background: rgba(56, 217, 150, 0.08);
+    color: var(--success);
+}
+
+.narration-progress {
+    display: grid;
+    grid-template-columns: auto minmax(70px, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text-secondary);
+    font-size: 10px;
+}
+
+.narration-track {
+    height: 4px;
+}
+
 .lesson-dialog-foot {
     border-top: 1px solid var(--border);
 }
