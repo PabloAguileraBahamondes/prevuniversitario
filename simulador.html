@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulador de práctica PAES M1 con preguntas variadas y revisión detallada.">
+    <title>Simulador | PreU M1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="logo" href="index.html"><span class="logo-icon">M1</span><span class="logo-copy"><strong>PREU M1</strong><small>Preparación PAES</small></span></a>
+        <nav class="menu" aria-label="Navegación principal">
+            <a class="menu-item" href="index.html"><span>⌂</span>Inicio</a>
+            <a class="menu-item" href="temario.html"><span>▣</span>Temario</a>
+            <a class="menu-item" href="practica.html"><span>✎</span>Práctica</a>
+            <a class="menu-item active" href="simulador.html"><span>◈</span>Simulador</a>
+            <a class="menu-item" href="progreso.html"><span>▥</span>Mi progreso</a>
+        </nav>
+        <div class="sidebar-bottom"><span>Ensaya con estrategia</span><small>Lee, modela, resuelve y comprueba.</small></div>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div><span class="eyebrow">PON A PRUEBA LO APRENDIDO</span><h1>Simulador M1</h1><p>Una práctica mixta y cronometrada, con revisión al finalizar.</p></div>
+        </header>
+        <section class="simulator-intro panel" id="simulator-intro">
+            <div class="simulator-mark">◈</div>
+            <div><span class="pill">SIMULACRO DE ENTRENAMIENTO</span><h2>¿Lista/o para el desafío?</h2><p>24 preguntas originales que recorren los 7 ejes de M1. Tendrás 45 minutos; puedes terminar antes y revisar cada solución al final.</p><p class="source-note">La cantidad y duración son de este entrenamiento; no representan una reproducción oficial de la prueba DEMRE.</p><button class="button button-primary" id="start-simulator">Iniciar simulacro →</button></div>
+        </section>
+        <section class="simulator-stage panel hidden" id="simulator-stage" aria-live="polite"></section>
+        <section class="simulator-results panel hidden" id="simulator-results" aria-live="polite"></section>
+    </main>
+    <script src="js/app.js"></script>
+    <script src="data/temario.js"></script>
+    <script src="data/preguntas.js"></script>
+    <script src="js/simulador.js"></script>
+    <script src="js/tutor.js"></script>
+</body>
+</html>

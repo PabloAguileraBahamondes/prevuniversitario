@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consulta tus resultados y temas por reforzar en la preparación PAES M1.">
+    <title>Mi progreso | PreU M1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="logo" href="index.html"><span class="logo-icon">M1</span><span class="logo-copy"><strong>PREU M1</strong><small>Preparación PAES</small></span></a>
+        <nav class="menu" aria-label="Navegación principal">
+            <a class="menu-item" href="index.html"><span>⌂</span>Inicio</a>
+            <a class="menu-item" href="temario.html"><span>▣</span>Temario</a>
+            <a class="menu-item" href="practica.html"><span>✎</span>Práctica</a>
+            <a class="menu-item" href="simulador.html"><span>◈</span>Simulador</a>
+            <a class="menu-item active" href="progreso.html"><span>▥</span>Mi progreso</a>
+        </nav>
+        <div class="sidebar-bottom"><span>Constancia antes que velocidad</span><small>Un paso de estudio a la vez.</small></div>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div><span class="eyebrow">TU CAMINO, TUS AVANCES</span><h1>Mi progreso</h1><p>Usa tus resultados para decidir qué conviene estudiar después.</p></div>
+        </header>
+        <section class="progress-stats stats">
+            <article class="stat-card"><span class="stat-icon">📝</span><div><span>Respondidas</span><strong id="progress-answered">0</strong></div></article>
+            <article class="stat-card"><span class="stat-icon">✓</span><div><span>Correctas</span><strong id="progress-correct">0</strong></div></article>
+            <article class="stat-card"><span class="stat-icon">🎯</span><div><span>Precisión</span><strong id="progress-accuracy">0%</strong></div></article>
+            <article class="stat-card"><span class="stat-icon">🔥</span><div><span>Racha actual</span><strong id="progress-streak">0 días</strong></div></article>
+        </section>
+        <section class="panel progress-panel">
+            <div class="section-title"><div><span class="section-label">REVISA TU DOMINIO</span><h2>Temas con aciertos por eje</h2></div></div>
+            <div class="axis-progress-list" id="axis-progress"></div>
+        </section>
+        <section class="panel progress-panel">
+            <div class="section-title"><div><span class="section-label">APRENDER DEL ERROR</span><h2>Temas que puedes reforzar</h2></div></div>
+            <div id="review-list" class="review-list"></div>
+        </section>
+        <button class="button button-quiet danger-button" id="clear-progress">Borrar mi progreso</button>
+    </main>
+    <script src="js/app.js"></script>
+    <script src="data/temario.js"></script>
+    <script src="data/preguntas.js"></script>
+    <script src="js/progreso.js"></script>
+    <script src="js/tutor.js"></script>
+</body>
+</html>

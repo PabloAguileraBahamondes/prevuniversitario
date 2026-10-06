@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practica preguntas originales estilo PAES M1 con retroalimentación paso a paso.">
+    <title>Práctica | PreU M1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="logo" href="index.html"><span class="logo-icon">M1</span><span class="logo-copy"><strong>PREU M1</strong><small>Preparación PAES</small></span></a>
+        <nav class="menu" aria-label="Navegación principal">
+            <a class="menu-item" href="index.html"><span>⌂</span>Inicio</a>
+            <a class="menu-item" href="temario.html"><span>▣</span>Temario</a>
+            <a class="menu-item active" href="practica.html"><span>✎</span>Práctica</a>
+            <a class="menu-item" href="simulador.html"><span>◈</span>Simulador</a>
+            <a class="menu-item" href="progreso.html"><span>▥</span>Mi progreso</a>
+        </nav>
+        <div class="sidebar-bottom"><span>Preguntas originales</span><small>Inspiradas en habilidades PAES M1. No oficiales.</small></div>
+    </aside>
+    <main class="main-content">
+        <header class="page-header">
+            <div><span class="eyebrow">ENTRENA A TU RITMO</span><h1>Práctica M1</h1><p>Resuelve, revisa tu razonamiento y aprende de cada respuesta.</p></div>
+        </header>
+        <section class="practice-toolbar panel">
+            <label for="practice-block">Eje temático</label>
+            <select id="practice-block">
+                <option value="0">Todos los ejes</option>
+                <option value="1">Números</option>
+                <option value="2">Porcentaje</option>
+                <option value="3">Potencias y raíces</option>
+                <option value="4">Álgebra</option>
+                <option value="5">Funciones</option>
+                <option value="6">Geometría</option>
+                <option value="7">Probabilidad y estadística</option>
+            </select>
+            <button class="button button-primary" id="start-practice">Comenzar práctica</button>
+            <span class="muted" id="practice-count"></span>
+        </section>
+        <section class="question-card panel" id="practice-area" aria-live="polite">
+            <div class="empty-state"><span class="empty-icon">✎</span><h2>Tu siguiente acierto empieza aquí</h2><p>Elige un eje temático o practica todo el temario. Recibirás una explicación al responder.</p></div>
+        </section>
+        <p class="source-note">Este banco contiene ejercicios originales inspirados en los contenidos y habilidades del temario PAES M1 de DEMRE. No son preguntas oficiales ni material publicado por DEMRE.</p>
+    </main>
+    <script src="js/app.js"></script>
+    <script src="data/temario.js"></script>
+    <script src="data/preguntas.js"></script>
+    <script src="js/preguntas.js"></script>
+    <script src="js/tutor.js"></script>
+</body>
+</html>

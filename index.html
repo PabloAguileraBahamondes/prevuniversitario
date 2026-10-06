@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PAES M1 | Preparación Matemática</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">M1</div>
+
+            <div>
+                <h1>PAES M1</h1>
+                <span>Preparación Matemática</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <a href="index.html" class="menu-item active">
+                <span>⌂</span>
+                Inicio
+            </a>
+
+            <a href="temario.html" class="menu-item">
+                <span>▣</span>
+                Temario
+            </a>
+
+            <a href="practica.html" class="menu-item">
+                <span>✎</span>
+                Práctica
+            </a>
+
+            <a href="simulador.html" class="menu-item">
+                <span>◈</span>
+                Simulador
+            </a>
+
+            <a href="progreso.html" class="menu-item">
+                <span>▥</span>
+                Mi progreso
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span>PAES M1</span>
+            <small>Tu preparación comienza aquí.</small>
+        </div>
+
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- ENCABEZADO -->
+        <header class="topbar">
+
+            <div>
+                <span class="welcome-small">PREPARACIÓN PAES</span>
+                <h2>Hola 👋</h2>
+            </div>
+
+            <div class="student-badge">
+                <span class="student-icon">P</span>
+                <div>
+                    <strong>Estudiante</strong>
+                    <small>PAES M1</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <span class="hero-label">MATEMÁTICA 1</span>
+
+                <h1>
+                    Prepárate para la<br>
+                    <strong>PAES M1.</strong>
+                </h1>
+
+                <p>
+                    Aprende los contenidos, practica con preguntas
+                    y mide tu progreso paso a paso.
+                </p>
+
+                <button class="primary-button" id="continue-study">
+                    ▶ Continuar estudiando
+                </button>
+
+            </div>
+
+            <div class="hero-decoration">
+                <div class="math-symbol">∑</div>
+                <div class="math-symbol">√</div>
+                <div class="math-symbol">π</div>
+                <div class="math-symbol">x²</div>
+            </div>
+
+        </section>
+
+
+        <!-- ESTADÍSTICAS -->
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">📚</div>
+
+                <div>
+                    <span>Temas con acierto</span>
+                    <strong id="temario-completado">0%</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">📝</div>
+
+                <div>
+                    <span>Preguntas</span>
+                    <strong id="total-preguntas">0</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">🎯</div>
+
+                <div>
+                    <span>Precisión</span>
+                    <strong id="precision">0%</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">🔥</div>
+
+                <div>
+                    <span>Racha</span>
+                    <strong id="racha">0 días</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTINUAR -->
+        <section class="continue-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="section-label">CONTINUAR</span>
+                    <h2>Tu preparación</h2>
+                </div>
+
+                <a href="temario.html">Ver temario →</a>
+
+            </div>
+
+
+            <div class="study-card">
+
+                <div class="study-number">
+                    01
+                </div>
+
+                <div class="study-info">
+
+                    <span class="study-block">
+                        BLOQUE 1 · NÚMEROS
+                    </span>
+
+                    <h3>Números enteros</h3>
+
+                    <p>
+                        Operaciones, orden, comparación,
+                        recta numérica y jerarquía de operaciones.
+                    </p>
+
+                    <div class="progress-container">
+
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+
+                        <span id="home-topic-progress">0%</span>
+
+                    </div>
+
+                </div>
+
+                <button class="study-button" id="start-topic">
+                    Comenzar →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACCESOS RÁPIDOS -->
+        <section class="quick-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span class="section-label">APRENDE Y PRACTICA</span>
+                    <h2>¿Qué quieres hacer?</h2>
+                </div>
+
+            </div>
+
+
+            <div class="quick-grid">
+
+                <a href="temario.html" class="quick-card">
+
+                    <div class="quick-icon">📚</div>
+
+                    <h3>Ver temario</h3>
+
+                    <p>
+                        Revisa los 7 bloques y las
+                        unidades de PAES M1.
+                    </p>
+
+                    <span>Explorar →</span>
+
+                </a>
+
+
+                <a href="practica.html" class="quick-card">
+
+                    <div class="quick-icon">📝</div>
+
+                    <h3>Practicar</h3>
+
+                    <p>
+                        Responde preguntas y
+                        comprueba tus conocimientos.
+                    </p>
+
+                    <span>Comenzar →</span>
+
+                </a>
+
+
+                <a href="simulador.html" class="quick-card">
+
+                    <div class="quick-icon">🧪</div>
+
+                    <h3>Simulador M1</h3>
+
+                    <p>
+                        Pon a prueba tus conocimientos
+                        con una prueba completa.
+                    </p>
+
+                    <span>Iniciar →</span>
+
+                </a>
+
+
+                <a href="progreso.html" class="quick-card">
+
+                    <div class="quick-icon">📊</div>
+
+                    <h3>Mi progreso</h3>
+
+                    <p>
+                        Revisa tus resultados,
+                        fortalezas y debilidades.
+                    </p>
+
+                    <span>Ver progreso →</span>
+
+                </a>
+
+                <a href="temario.html?tema=1" class="quick-card">
+
+                    <div class="quick-icon">🎙️</div>
+
+                    <h3>Clases narradas</h3>
+
+                    <p>
+                        Escucha explicaciones paso a paso
+                        con el tutor de voz integrado.
+                    </p>
+
+                    <span>Ir al aula →</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FRASE FINAL -->
+        <section class="motivation">
+
+            <span>🎯</span>
+
+            <div>
+                <strong>Cada pregunta cuenta.</strong>
+                <p>
+                    Aprende, practica, equivócate y vuelve a intentarlo.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/app.js"></script>
+    <script src="data/temario.js"></script>
+    <script src="data/preguntas.js"></script>
+    <script src="js/tutor.js"></script>
+</body>
+</html>
