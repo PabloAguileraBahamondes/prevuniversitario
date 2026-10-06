@@ -144,6 +144,246 @@ const preguntasM1 = [
         enunciado: "En una bolsa hay 4 fichas rojas y 3 azules. Si se extrae una ficha al azar, ¿cuál es la probabilidad de que sea roja?",
         alternativas: ["3/7", "4/7", "1/2", "4/3"], correcta: 1,
         explicacion: "Hay 4 resultados favorables de 7 fichas posibles, así que la probabilidad es 4/7."
+    },
+    {
+        id: "m1-25", temaId: 1, bloque: 1, dificultad: "Aplicación", subtema: "Jerarquía de operaciones",
+        enunciado: "¿Cuál es el valor de 18 − 2 × (3 + 4)?",
+        alternativas: ["4", "16", "28", "112"], correcta: 0,
+        explicacion: "Primero resolvemos el paréntesis: 3 + 4 = 7. Luego multiplicamos 2 × 7 = 14 y restamos 18 − 14 = 4."
+    },
+    {
+        id: "m1-26", temaId: 1, bloque: 1, dificultad: "Aplicación", subtema: "Convención de signos",
+        enunciado: "En una ciudad, la temperatura era −6 °C y subió 11 °C. ¿Cuál es la nueva temperatura?",
+        alternativas: ["−17 °C", "−5 °C", "5 °C", "17 °C"], correcta: 2,
+        explicacion: "El aumento se representa sumando: −6 + 11 = 5 °C."
+    },
+    {
+        id: "m1-27", temaId: 2, bloque: 1, dificultad: "Aplicación", subtema: "Fracciones, decimales y enteros",
+        enunciado: "¿Cuál de las siguientes fracciones es equivalente a 0,375?",
+        alternativas: ["3/8", "3/5", "5/8", "37/5"], correcta: 0,
+        explicacion: "0,375 = 375/1000. Simplificando numerador y denominador por 125 se obtiene 3/8."
+    },
+    {
+        id: "m1-28", temaId: 2, bloque: 1, dificultad: "Aplicación", subtema: "Comparación y orden",
+        enunciado: "¿Cuál es el mayor de estos números racionales: −2/3, −3/4, 1/2 y −1/5?",
+        alternativas: ["−2/3", "−3/4", "1/2", "−1/5"], correcta: 2,
+        explicacion: "Los tres primeros negativos son menores que cero; 1/2 es positivo y por lo tanto el mayor."
+    },
+    {
+        id: "m1-29", temaId: 3, bloque: 1, dificultad: "Aplicación", subtema: "Problemas en contextos reales",
+        enunciado: "Un buzo está a 12 m bajo el nivel del mar. Sube 5 m y luego desciende 8 m. ¿A qué altura queda respecto del nivel del mar?",
+        alternativas: ["−25 m", "−15 m", "−5 m", "1 m"], correcta: 1,
+        explicacion: "Tomando el nivel del mar como cero: −12 + 5 − 8 = −15 m."
+    },
+    {
+        id: "m1-30", temaId: 3, bloque: 1, dificultad: "Aplicación", subtema: "Elegir la operación correcta",
+        enunciado: "Se reparten 3,6 L de jugo en vasos de 0,3 L cada uno. ¿Cuántos vasos se llenan?",
+        alternativas: ["1,2", "9", "12", "108"], correcta: 2,
+        explicacion: "Para saber cuántas porciones caben, dividimos el total por la capacidad de cada vaso: 3,6 ÷ 0,3 = 12."
+    },
+    {
+        id: "m1-31", temaId: 4, bloque: 2, dificultad: "Inicial", subtema: "Concepto de porcentaje",
+        enunciado: "¿Qué fracción representa el 45%?",
+        alternativas: ["9/20", "4/5", "45/10", "20/9"], correcta: 0,
+        explicacion: "45% = 45/100. Al simplificar dividiendo por 5 queda 9/20."
+    },
+    {
+        id: "m1-32", temaId: 4, bloque: 2, dificultad: "Aplicación", subtema: "Cálculo directo",
+        enunciado: "Una biblioteca tiene 240 libros y el 15% son de ciencias. ¿Cuántos libros de ciencias tiene?",
+        alternativas: ["24", "36", "40", "204"], correcta: 1,
+        explicacion: "Calculamos 15% de 240: 0,15 × 240 = 36 libros."
+    },
+    {
+        id: "m1-33", temaId: 5, bloque: 2, dificultad: "Aplicación", subtema: "Aumentos y descuentos",
+        enunciado: "Una bicicleta de $80.000 aumenta su precio en 10%. ¿Cuál es el nuevo precio?",
+        alternativas: ["$80.100", "$88.000", "$90.000", "$72.000"], correcta: 1,
+        explicacion: "El aumento es 0,10 × 80.000 = $8.000. El nuevo precio es $88.000."
+    },
+    {
+        id: "m1-34", temaId: 5, bloque: 2, dificultad: "Desafío", subtema: "Porcentaje de porcentaje",
+        enunciado: "En una escuela de 200 estudiantes, el 40% participa en deportes y el 25% de ese grupo compite. ¿Cuántos compiten?",
+        alternativas: ["20", "25", "40", "80"], correcta: 0,
+        explicacion: "Primero 40% de 200 = 80 estudiantes. Luego 25% de 80 = 20."
+    },
+    {
+        id: "m1-35", temaId: 6, bloque: 3, dificultad: "Aplicación", subtema: "Potencias de base racional",
+        enunciado: "¿Cuál es el valor de (−2/3)²?",
+        alternativas: ["−4/9", "−4/6", "4/9", "4/6"], correcta: 2,
+        explicacion: "Elevamos numerador y denominador al cuadrado: (−2)²/3² = 4/9."
+    },
+    {
+        id: "m1-36", temaId: 6, bloque: 3, dificultad: "Aplicación", subtema: "Propiedades de las potencias",
+        enunciado: "Para a ≠ 0, ¿a qué equivale a⁷ ÷ a³?",
+        alternativas: ["a²", "a⁴", "a¹⁰", "a²¹"], correcta: 1,
+        explicacion: "Al dividir potencias de igual base, restamos exponentes: a⁷ ÷ a³ = a⁽⁷⁻³⁾ = a⁴."
+    },
+    {
+        id: "m1-37", temaId: 7, bloque: 3, dificultad: "Aplicación", subtema: "Descomposición de raíces",
+        enunciado: "¿Cuál es la forma simplificada de √180?",
+        alternativas: ["3√20", "6√5", "9√2", "10√3"], correcta: 1,
+        explicacion: "180 = 36 × 5, entonces √180 = √36 × √5 = 6√5."
+    },
+    {
+        id: "m1-38", temaId: 7, bloque: 3, dificultad: "Aplicación", subtema: "Propiedades",
+        enunciado: "¿Cuál es el valor de √9 × √16?",
+        alternativas: ["7", "12", "25", "144"], correcta: 1,
+        explicacion: "√9 × √16 = 3 × 4 = 12."
+    },
+    {
+        id: "m1-39", temaId: 8, bloque: 3, dificultad: "Aplicación", subtema: "Simplificación",
+        enunciado: "¿Cuál es el resultado simplificado de √48 − √12?",
+        alternativas: ["√36", "2√3", "3√3", "6√3"], correcta: 1,
+        explicacion: "√48 = 4√3 y √12 = 2√3. Al restar, queda 2√3."
+    },
+    {
+        id: "m1-40", temaId: 8, bloque: 3, dificultad: "Aplicación", subtema: "Aplicación en contexto",
+        enunciado: "Un patio cuadrado tiene un área de 225 m². ¿Cuántos metros de reja se necesitan para cercarlo por completo?",
+        alternativas: ["15 m", "30 m", "60 m", "225 m"], correcta: 2,
+        explicacion: "El lado mide √225 = 15 m. El perímetro es 4 × 15 = 60 m."
+    },
+    {
+        id: "m1-41", temaId: 9, bloque: 4, dificultad: "Aplicación", subtema: "Productos notables",
+        enunciado: "¿Cuál es el desarrollo de (x − 4)²?",
+        alternativas: ["x² − 16", "x² − 8x + 16", "x² + 8x + 16", "x² − 4x + 16"], correcta: 1,
+        explicacion: "Usamos (a − b)² = a² − 2ab + b²: x² − 8x + 16."
+    },
+    {
+        id: "m1-42", temaId: 9, bloque: 4, dificultad: "Aplicación", subtema: "Factorización",
+        enunciado: "¿Cuál es la factorización de x² − 25?",
+        alternativas: ["(x − 5)²", "(x + 5)²", "(x − 5)(x + 5)", "x(x − 25)"], correcta: 2,
+        explicacion: "Es una diferencia de cuadrados: x² − 5² = (x − 5)(x + 5)."
+    },
+    {
+        id: "m1-43", temaId: 10, bloque: 4, dificultad: "Aplicación", subtema: "Interpretación de expresiones",
+        enunciado: "Una aplicación cobra $900 de inscripción más $250 por cada clase. ¿Qué expresión representa el costo de n clases?",
+        alternativas: ["900n + 250", "1.150n", "900 + 250n", "250 + 900n²"], correcta: 2,
+        explicacion: "La inscripción es un cobro fijo y cada clase agrega $250: C(n) = 900 + 250n."
+    },
+    {
+        id: "m1-44", temaId: 10, bloque: 4, dificultad: "Aplicación", subtema: "Planteamiento de problemas",
+        enunciado: "El triple de un número, disminuido en 4, es 20. ¿Cuál es el número?",
+        alternativas: ["6", "8", "12", "24"], correcta: 1,
+        explicacion: "Planteamos 3x − 4 = 20. Sumamos 4 y dividimos por 3: x = 8."
+    },
+    {
+        id: "m1-45", temaId: 11, bloque: 4, dificultad: "Aplicación", subtema: "Proporcionalidad directa",
+        enunciado: "La distancia recorrida es directamente proporcional al tiempo. Si en 2 horas se recorren 150 km, ¿cuánto se recorre en 5 horas al mismo ritmo?",
+        alternativas: ["300 km", "350 km", "375 km", "500 km"], correcta: 2,
+        explicacion: "La rapidez constante es 150 ÷ 2 = 75 km/h. En 5 horas se recorren 75 × 5 = 375 km."
+    },
+    {
+        id: "m1-46", temaId: 11, bloque: 4, dificultad: "Aplicación", subtema: "Proporcionalidad inversa",
+        enunciado: "Ocho grifos iguales llenan un estanque en 6 horas. ¿Cuánto tardan 12 grifos iguales?",
+        alternativas: ["3 horas", "4 horas", "9 horas", "12 horas"], correcta: 1,
+        explicacion: "Es inversa: 8 × 6 = 12 × t. Entonces t = 48 ÷ 12 = 4 horas."
+    },
+    {
+        id: "m1-47", temaId: 12, bloque: 4, dificultad: "Aplicación", subtema: "Interpretación de razones",
+        enunciado: "La razón entre harina y azúcar en una receta es 3:2. Si se usan 12 tazas de harina, ¿cuántas de azúcar se necesitan?",
+        alternativas: ["6", "8", "9", "18"], correcta: 1,
+        explicacion: "La harina se multiplicó por 4 (3 × 4 = 12); multiplicamos el azúcar por el mismo factor: 2 × 4 = 8 tazas."
+    },
+    {
+        id: "m1-48", temaId: 12, bloque: 4, dificultad: "Aplicación", subtema: "Aplicaciones en contexto",
+        enunciado: "Un mapa usa la escala 1 cm : 5 km. Dos ciudades están separadas por 7 cm en el mapa. ¿Cuál es la distancia real?",
+        alternativas: ["12 km", "25 km", "35 km", "70 km"], correcta: 2,
+        explicacion: "Cada centímetro representa 5 km. Para 7 cm: 7 × 5 = 35 km."
+    },
+    {
+        id: "m1-49", temaId: 13, bloque: 4, dificultad: "Aplicación", subtema: "Problemas con inecuaciones",
+        enunciado: "Para subir a una atracción se exige medir al menos 140 cm. Si Martina mide h cm, ¿qué condición debe cumplir?",
+        alternativas: ["h < 140", "h ≤ 140", "h > 140", "h ≥ 140"], correcta: 3,
+        explicacion: "'Al menos 140' incluye 140 y cualquier valor mayor: h ≥ 140."
+    },
+    {
+        id: "m1-50", temaId: 13, bloque: 4, dificultad: "Aplicación", subtema: "Inecuaciones",
+        enunciado: "¿Cuál es el conjunto solución de 4x + 3 ≤ 15?",
+        alternativas: ["x ≤ 3", "x ≥ 3", "x ≤ 4,5", "x ≥ 4,5"], correcta: 0,
+        explicacion: "Restamos 3: 4x ≤ 12. Dividimos por 4: x ≤ 3."
+    },
+    {
+        id: "m1-51", temaId: 14, bloque: 4, dificultad: "Aplicación", subtema: "Métodos de resolución",
+        enunciado: "¿Cuál es la solución del sistema x + y = 11, x − y = 5?",
+        alternativas: ["(3, 8)", "(8, 3)", "(5, 6)", "(11, 5)"], correcta: 1,
+        explicacion: "Sumando las ecuaciones, 2x = 16 y x = 8. Sustituyendo, y = 3."
+    },
+    {
+        id: "m1-52", temaId: 14, bloque: 4, dificultad: "Aplicación", subtema: "Problemas en contexto",
+        enunciado: "En un cine, 2 entradas de adulto y 1 infantil cuestan $17.000. Una entrada de adulto y 1 infantil cuestan $10.000. ¿Cuánto cuesta la entrada de adulto?",
+        alternativas: ["$5.000", "$7.000", "$10.000", "$17.000"], correcta: 1,
+        explicacion: "Restamos la segunda compra de la primera: queda una entrada de adulto, que cuesta $17.000 − $10.000 = $7.000."
+    },
+    {
+        id: "m1-53", temaId: 15, bloque: 5, dificultad: "Aplicación", subtema: "Gráficos",
+        enunciado: "¿Cuál es la pendiente de la recta que pasa por (1, 4) y (3, 10)?",
+        alternativas: ["2", "3", "4", "6"], correcta: 1,
+        explicacion: "La pendiente es el cambio en y dividido por el cambio en x: (10 − 4)/(3 − 1) = 6/2 = 3."
+    },
+    {
+        id: "m1-54", temaId: 24, bloque: 7, dificultad: "Aplicación", subtema: "Regla multiplicativa",
+        enunciado: "Al lanzar una moneda justa y un dado justo, ¿cuál es la probabilidad de obtener cara y un número par?",
+        alternativas: ["1/4", "1/3", "1/2", "3/4"], correcta: 0,
+        explicacion: "Los eventos son independientes. P(cara y par) = 1/2 × 3/6 = 1/4."
+    },
+    {
+        id: "m1-55", temaId: 16, bloque: 5, dificultad: "Aplicación", subtema: "Modelación",
+        enunciado: "Una aplicación de transporte cobra $700 de base más $180 por kilómetro. ¿Cuál es el costo de un viaje de 8 km?",
+        alternativas: ["$1.440", "$2.140", "$5.600", "$7.040"], correcta: 1,
+        explicacion: "El modelo es C(k) = 700 + 180k. Para 8 km: 700 + 180 × 8 = $2.140."
+    },
+    {
+        id: "m1-56", temaId: 16, bloque: 5, dificultad: "Aplicación", subtema: "Resolución de problemas",
+        enunciado: "Un estanque tiene 90 L y pierde 6 L por minuto. ¿Cuánto tiempo tarda en quedar con 54 L?",
+        alternativas: ["6 min", "9 min", "15 min", "24 min"], correcta: 0,
+        explicacion: "La cantidad perdida es 90 − 54 = 36 L. A 6 L por minuto, el tiempo es 36 ÷ 6 = 6 minutos."
+    },
+    {
+        id: "m1-57", temaId: 17, bloque: 5, dificultad: "Aplicación", subtema: "Vértice",
+        enunciado: "¿Cuál es el vértice de la parábola y = (x − 2)² + 3?",
+        alternativas: ["(−2, 3)", "(2, 3)", "(3, 2)", "(2, −3)"], correcta: 1,
+        explicacion: "En la forma y = (x − h)² + k, el vértice es (h, k). Por tanto, es (2, 3)."
+    },
+    {
+        id: "m1-58", temaId: 17, bloque: 5, dificultad: "Aplicación", subtema: "Intersecciones",
+        enunciado: "¿En qué punto la gráfica y = x² + 2x − 3 intersecta el eje y?",
+        alternativas: ["(−3, 0)", "(0, −3)", "(0, 2)", "(3, 0)"], correcta: 1,
+        explicacion: "En el eje y, x = 0. Entonces y = 0² + 2 × 0 − 3 = −3; el punto es (0, −3)."
+    },
+    {
+        id: "m1-59", temaId: 18, bloque: 5, dificultad: "Aplicación", subtema: "Aplicaciones en contexto",
+        enunciado: "La altura de una pelota está dada por h(t) = −t² + 8t. ¿Cuál es su altura máxima?",
+        alternativas: ["8 m", "16 m", "32 m", "64 m"], correcta: 1,
+        explicacion: "El máximo está en el vértice: t = −8/(2 × −1) = 4 s. Evaluando, h(4) = −16 + 32 = 16 m."
+    },
+    {
+        id: "m1-60", temaId: 19, bloque: 6, dificultad: "Aplicación", subtema: "Áreas",
+        enunciado: "Un jardín rectangular mide 9 m de largo y 4 m de ancho. ¿Cuál es su área?",
+        alternativas: ["13 m²", "26 m²", "36 m²", "72 m²"], correcta: 2,
+        explicacion: "El área del rectángulo es largo × ancho: 9 × 4 = 36 m²."
+    },
+    {
+        id: "m1-61", temaId: 20, bloque: 6, dificultad: "Aplicación", subtema: "Área de superficies",
+        enunciado: "Un cubo tiene aristas de 3 cm. ¿Cuál es el área total de sus caras?",
+        alternativas: ["27 cm²", "36 cm²", "54 cm²", "81 cm²"], correcta: 2,
+        explicacion: "Cada cara tiene área 3² = 9 cm² y el cubo tiene 6 caras. Área total: 6 × 9 = 54 cm²."
+    },
+    {
+        id: "m1-62", temaId: 21, bloque: 6, dificultad: "Aplicación", subtema: "Traslación y plano cartesiano",
+        enunciado: "El punto P(−2, 3) se traslada con el vector (5, −4). ¿Cuáles son las coordenadas de su imagen?",
+        alternativas: ["(−7, 7)", "(3, −1)", "(3, 7)", "(−10, −12)"], correcta: 1,
+        explicacion: "Sumamos el vector a las coordenadas: (−2 + 5, 3 − 4) = (3, −1)."
+    },
+    {
+        id: "m1-63", temaId: 22, bloque: 7, dificultad: "Aplicación", subtema: "Tablas de frecuencia",
+        enunciado: "En una tabla, los valores 1, 2 y 3 tienen frecuencias 2, 3 y 1, respectivamente. ¿Cuántos datos hay en total y cuál es su media?",
+        alternativas: ["6 datos y media 1,5", "6 datos y media 11/6", "3 datos y media 2", "6 datos y media 2"], correcta: 1,
+        explicacion: "Hay 2 + 3 + 1 = 6 datos. La media ponderada es (1×2 + 2×3 + 3×1)/6 = 11/6."
+    },
+    {
+        id: "m1-64", temaId: 23, bloque: 7, dificultad: "Aplicación", subtema: "Cuartiles y diagrama de caja",
+        enunciado: "En un conjunto de datos, Q1 = 8, la mediana es 12 y Q3 = 18. ¿Cuál es el rango intercuartílico?",
+        alternativas: ["4", "6", "10", "18"], correcta: 2,
+        explicacion: "El rango intercuartílico es Q3 − Q1 = 18 − 8 = 10."
     }
 ];
 

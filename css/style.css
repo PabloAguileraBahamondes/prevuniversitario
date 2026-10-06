@@ -2464,3 +2464,349 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
+
+.creator-signature {
+    position: absolute;
+    top: 17px;
+    right: 19px;
+    z-index: 3;
+    color: var(--text-muted);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+}
+
+.creator-signature strong {
+    color: var(--primary-light);
+}
+
+.rotating-example-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+    margin-bottom: 9px;
+}
+
+.rotating-example-heading h3 {
+    margin: 0;
+}
+
+.rotating-example .rotating-answer {
+    margin-top: 9px;
+    color: var(--success);
+}
+
+.example-practice-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--primary-light);
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.example-practice-link:hover {
+    text-decoration: underline;
+}
+
+.practice-missions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.practice-mission-card {
+    display: grid;
+    align-content: start;
+    gap: 9px;
+    min-height: 205px;
+    padding: 21px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background:
+        radial-gradient(circle at 100% 0, rgba(108, 99, 255, 0.16), transparent 50%),
+        var(--card);
+}
+
+.practice-mission-card.exam-mission {
+    background:
+        radial-gradient(circle at 100% 0, rgba(56, 217, 150, 0.12), transparent 50%),
+        var(--card);
+}
+
+.mission-eyebrow,
+.mission-card .section-label {
+    color: var(--primary-light);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.exam-mission .mission-eyebrow {
+    color: var(--success);
+}
+
+.practice-mission-card h2 {
+    font-size: 18px;
+}
+
+.practice-mission-card p,
+.mission-card p {
+    max-width: 540px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.65;
+}
+
+.practice-mission-card .button {
+    justify-self: start;
+    margin-top: 5px;
+}
+
+.mission-rank {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px;
+    padding: 20px 22px;
+    border-color: rgba(108, 99, 255, 0.22);
+    background:
+        radial-gradient(circle at 0 50%, rgba(108, 99, 255, 0.16), transparent 32%),
+        var(--card);
+}
+
+.mission-rank-icon,
+.mission-recommendation-mark {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(139, 133, 255, 0.32);
+    border-radius: 14px;
+    background: rgba(108, 99, 255, 0.12);
+    color: var(--primary-light);
+    font-size: 23px;
+}
+
+.mission-rank-copy h2,
+.mission-recommendation-copy h2 {
+    margin-top: 4px;
+    font-size: 18px;
+}
+
+.mission-rank-copy p,
+.mission-recommendation-copy p {
+    margin-top: 5px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.mission-rank-track {
+    height: 5px;
+    margin-top: 11px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mission-rank-track span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--primary), var(--success));
+    transition: width 0.35s ease;
+}
+
+.mission-rank-next {
+    color: var(--primary-light);
+    font-size: 10px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.mission-card {
+    position: relative;
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 10px;
+    min-height: 225px;
+    padding: 21px;
+    overflow: hidden;
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    border-radius: 13px;
+    background:
+        radial-gradient(circle at 100% 0, rgba(108, 99, 255, 0.2), transparent 48%),
+        var(--card);
+}
+
+.mission-card-exam {
+    border-color: rgba(56, 217, 150, 0.18);
+    background:
+        radial-gradient(circle at 100% 0, rgba(56, 217, 150, 0.14), transparent 48%),
+        var(--card);
+}
+
+.mission-card-icon {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    color: rgba(139, 133, 255, 0.5);
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.mission-card-exam .mission-card-icon {
+    color: rgba(56, 217, 150, 0.45);
+}
+
+.mission-card h2 {
+    font-size: 19px;
+}
+
+.mission-card .button {
+    margin-top: 3px;
+}
+
+.mission-recommendation {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 15px;
+    margin-top: 18px;
+    padding: 18px 20px;
+}
+
+.mission-recommendation-mark {
+    width: 40px;
+    height: 40px;
+    border-color: rgba(56, 217, 150, 0.25);
+    background: rgba(56, 217, 150, 0.08);
+    color: var(--success);
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.achievement-card {
+    display: grid;
+    align-content: start;
+    gap: 7px;
+    min-height: 142px;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.018);
+    opacity: 0.58;
+}
+
+.achievement-card.is-unlocked {
+    border-color: rgba(56, 217, 150, 0.25);
+    background: linear-gradient(145deg, rgba(56, 217, 150, 0.07), var(--card));
+    opacity: 1;
+}
+
+.achievement-icon {
+    font-size: 21px;
+}
+
+.achievement-card strong {
+    font-size: 11px;
+}
+
+.achievement-card small {
+    color: var(--text-secondary);
+    font-size: 9px;
+    line-height: 1.45;
+}
+
+.achievement-state {
+    margin-top: auto;
+    color: var(--text-muted);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.65px;
+}
+
+.achievement-card.is-unlocked .achievement-state {
+    color: var(--success);
+}
+
+@media (max-width: 1000px) {
+    .achievement-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .achievement-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .creator-signature {
+        top: 12px;
+        right: 13px;
+        font-size: 7px;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .practice-missions,
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-mission-card,
+    .mission-card {
+        min-height: 0;
+    }
+
+    .mission-rank {
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .mission-rank-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mission-rank-next {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .mission-recommendation {
+        grid-template-columns: auto minmax(0, 1fr);
+        padding: 15px;
+    }
+
+    .mission-recommendation .button {
+        grid-column: 1 / -1;
+    }
+
+    .achievement-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

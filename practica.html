@@ -15,7 +15,7 @@
             <a class="menu-item" href="temario.html"><span>▣</span>Temario</a>
             <a class="menu-item active" href="practica.html"><span>✎</span>Práctica</a>
             <a class="menu-item" href="simulador.html"><span>◈</span>Simulador</a>
-            <a class="menu-item" href="progreso.html"><span>▥</span>Mi progreso</a>
+            <a class="menu-item" href="progreso.html"><span>✦</span>Misiones M1</a>
         </nav>
         <div class="sidebar-bottom"><span>Preguntas originales</span><small>Inspiradas en habilidades PAES M1. No oficiales.</small></div>
     </aside>
@@ -35,8 +35,21 @@
                 <option value="6">Geometría</option>
                 <option value="7">Probabilidad y estadística</option>
             </select>
-            <button class="button button-primary" id="start-practice">Comenzar práctica</button>
-            <span class="muted" id="practice-count"></span>
+            <span class="muted" id="practice-count">64 preguntas originales listas</span>
+        </section>
+        <section class="practice-missions" aria-label="Modos de práctica">
+            <article class="practice-mission-card rotation-mission">
+                <span class="mission-eyebrow" id="rotation-eyebrow">RUTA DIARIA · 10 PREGUNTAS</span>
+                <h2 id="rotation-title">Repaso rotativo</h2>
+                <p id="rotation-copy">Una pregunta por tema. Cada sesión prioriza contenidos distintos hasta recorrer los 24 temas.</p>
+                <button class="button button-primary" id="start-practice" type="button">Iniciar ruta de 10 →</button>
+            </article>
+            <article class="practice-mission-card exam-mission">
+                <span class="mission-eyebrow">ENSAYO INTEGRAL · 64 PREGUNTAS</span>
+                <h2>Desafío PAES M1</h2>
+                <p>Recorre los siete ejes en una sesión completa, con alternativas y explicación después de cada respuesta.</p>
+                <button class="button button-quiet" id="start-full-practice" type="button">Comenzar las 64 →</button>
+            </article>
         </section>
         <section class="question-card panel" id="practice-area" aria-live="polite">
             <div class="empty-state"><span class="empty-icon">✎</span><h2>Tu siguiente acierto empieza aquí</h2><p>Elige un eje temático o practica todo el temario. Recibirás una explicación al responder.</p></div>

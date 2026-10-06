@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consulta tus resultados y temas por reforzar en la preparación PAES M1.">
-    <title>Mi progreso | PreU M1</title>
+    <meta name="description" content="Cumple misiones de práctica PAES M1, recorre los 24 temas y mide tu dominio.">
+    <title>Misiones M1 | PreU M1</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,13 +15,13 @@
             <a class="menu-item" href="temario.html"><span>▣</span>Temario</a>
             <a class="menu-item" href="practica.html"><span>✎</span>Práctica</a>
             <a class="menu-item" href="simulador.html"><span>◈</span>Simulador</a>
-            <a class="menu-item active" href="progreso.html"><span>▥</span>Mi progreso</a>
+            <a class="menu-item active" href="progreso.html"><span>✦</span>Misiones M1</a>
         </nav>
         <div class="sidebar-bottom"><span>Constancia antes que velocidad</span><small>Un paso de estudio a la vez.</small></div>
     </aside>
     <main class="main-content">
         <header class="page-header">
-            <div><span class="eyebrow">TU CAMINO, TUS AVANCES</span><h1>Mi progreso</h1><p>Usa tus resultados para decidir qué conviene estudiar después.</p></div>
+            <div><span class="eyebrow">CENTRAL DE ENTRENAMIENTO</span><h1>Misiones M1</h1><p>Tu próxima misión cambia con tus resultados. Cada respuesta abre el mapa.</p></div>
         </header>
         <section class="progress-stats stats">
             <article class="stat-card"><span class="stat-icon">📝</span><div><span>Respondidas</span><strong id="progress-answered">0</strong></div></article>
@@ -29,12 +29,51 @@
             <article class="stat-card"><span class="stat-icon">🎯</span><div><span>Precisión</span><strong id="progress-accuracy">0%</strong></div></article>
             <article class="stat-card"><span class="stat-icon">🔥</span><div><span>Racha actual</span><strong id="progress-streak">0 días</strong></div></article>
         </section>
+        <section class="mission-rank panel" aria-label="Rango de entrenamiento">
+            <div class="mission-rank-icon" aria-hidden="true">✦</div>
+            <div class="mission-rank-copy">
+                <span class="section-label">TU RANGO DE CAMPAÑA</span>
+                <h2 id="mission-rank">Aspirante M1</h2>
+                <p id="mission-rank-copy">Completa tu primera misión para iniciar el recorrido.</p>
+                <div class="mission-rank-track" role="progressbar" aria-label="Avance al siguiente rango" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="mission-rank-fill"></span></div>
+            </div>
+            <span class="mission-rank-next" id="mission-rank-next">Siguiente rango · Explorador</span>
+        </section>
+        <section class="mission-grid" aria-label="Misiones disponibles">
+            <article class="mission-card mission-card-rotating">
+                <span class="mission-card-icon" aria-hidden="true">↻</span>
+                <span class="section-label">RUTA INTELIGENTE · 10 PREGUNTAS</span>
+                <h2>La vuelta de los 24</h2>
+                <p>Una sesión breve que rota por los temas menos practicados para que ningún eje quede atrás.</p>
+                <a class="button button-primary" href="practica.html?modo=10">Empezar misión →</a>
+            </article>
+            <article class="mission-card mission-card-exam">
+                <span class="mission-card-icon" aria-hidden="true">◎</span>
+                <span class="section-label">ENSAYO COMPLETO · 64 PREGUNTAS</span>
+                <h2>El desafío M1</h2>
+                <p>Una prueba integral con preguntas originales de todos los ejes y resolución explicada.</p>
+                <a class="button button-quiet" href="practica.html?modo=64">Iniciar desafío →</a>
+            </article>
+        </section>
+        <section class="panel mission-recommendation" aria-labelledby="recommendation-title">
+            <div class="mission-recommendation-mark" aria-hidden="true">↗</div>
+            <div class="mission-recommendation-copy">
+                <span class="section-label">SEÑAL DEL RADAR</span>
+                <h2 id="recommendation-title">Preparando tu próxima misión…</h2>
+                <p id="recommendation-copy">Cuando respondas preguntas, aquí encontrarás una recomendación basada en tu avance.</p>
+            </div>
+            <a class="button button-quiet" id="recommendation-link" href="practica.html?modo=10">Explorar ruta →</a>
+        </section>
         <section class="panel progress-panel">
-            <div class="section-title"><div><span class="section-label">REVISA TU DOMINIO</span><h2>Temas con aciertos por eje</h2></div></div>
+            <div class="section-title"><div><span class="section-label">INSIGNIAS DE CAMPAÑA</span><h2>Logros desbloqueables</h2></div></div>
+            <div class="achievement-grid" id="achievement-grid"></div>
+        </section>
+        <section class="panel progress-panel">
+            <div class="section-title"><div><span class="section-label">MAPA DE LOS SIETE EJES</span><h2>Territorio explorado</h2></div></div>
             <div class="axis-progress-list" id="axis-progress"></div>
         </section>
         <section class="panel progress-panel">
-            <div class="section-title"><div><span class="section-label">APRENDER DEL ERROR</span><h2>Temas que puedes reforzar</h2></div></div>
+            <div class="section-title"><div><span class="section-label">PISTAS PARA EL PRÓXIMO NIVEL</span><h2>Temas por reforzar</h2></div></div>
             <div id="review-list" class="review-list"></div>
         </section>
         <button class="button button-quiet danger-button" id="clear-progress">Borrar mi progreso</button>

@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const CLAVE_SUBTEMAS_DOMINADOS = "preuM1_subtemasDominados_v1";
+const CLAVE_EJEMPLOS_RECIENTES = "preuM1_ejemplosRecientes_v1";
 
 function abrirTema(id) {
     const tema = obtenerTema(id);
@@ -52,7 +53,8 @@ function abrirTema(id) {
     const dialogo = document.querySelector("#lesson-dialog") || crearDialogoLeccion();
     const contenidos = tema.contenidos.map((contenido) => `<li>${escaparHTML(contenido)}</li>`).join("");
     const preguntas = preguntasM1.filter((pregunta) => pregunta.temaId === tema.id);
-    const numeroPregunta = preguntas.length ? preguntas[0].id : "";
+    const ejemplo = seleccionarEjemploAleatorio(tema, preguntas);
+    const numeroPregunta = ejemplo.id;
     const dominados = obtenerSubtemasDominados();
     const lecciones = tema.lecciones.map((leccion, indice) => {
         const clave = `${tema.id}:${indice}`;
@@ -111,7 +113,7 @@ function abrirTema(id) {
         <div class="lesson-content">
             <section><h3>La idea clave</h3><p>${escaparHTML(tema.idea)}</p></section>
             <section><h3>Temas que revisarás</h3><ul>${contenidos}</ul></section>
-            <section class="example-box"><h3>Ejemplo resuelto</h3><p><strong>${escaparHTML(tema.ejemplo)}</strong></p><p>${escaparHTML(tema.solucion)}</p></section>
+            <section class="example-box rotating-example"><div class="rotating-example-heading"><h3>Ejemplo sorpresa</h3><span class="pill">DISTINTO CADA VISITA</span></div><p><strong>${escaparHTML(ejemplo.enunciado)}</strong></p><p class="rotating-answer"><strong>Respuesta: ${escaparHTML(ejemplo.alternativas[ejemplo.correcta])}</strong></p><p>${escaparHTML(ejemplo.explicacion)}</p><a class="example-practice-link" href="practica.html?pregunta=${encodeURIComponent(ejemplo.id)}">Resolverlo por tu cuenta →</a></section>
             <section class="sublesson-route" aria-labelledby="sublesson-route-title">
                 <div class="sublesson-route-head">
                     <div><span class="eyebrow">RUTA M1 · TEMA ${String(tema.id).padStart(2, "0")}</span><h3 id="sublesson-route-title">Cada contenido, paso a paso</h3></div>
@@ -167,6 +169,31 @@ function abrirTema(id) {
         if ("speechSynthesis" in window) window.speechSynthesis.cancel();
         dialogo.querySelector("#narration-status").textContent = "Narración detenida. Puedes volver a reproducirla cuando quieras.";
     });
+}
+
+function seleccionarEjemploAleatorio(tema, preguntas) {
+    if (!preguntas.length) {
+        throw new Error(`El tema ${tema.id} no tiene preguntas para generar un ejemplo aleatorio.`);
+    }
+    let recientes = {};
+    const guardado = localStorage.getItem(CLAVE_EJEMPLOS_RECIENTES);
+    if (guardado) {
+        try {
+            recientes = JSON.parse(guardado);
+            if (!recientes || typeof recientes !== "object" || Array.isArray(recientes)) {
+                throw new TypeError("El historial de ejemplos debe ser un objeto.");
+            }
+        } catch (error) {
+            console.error("No se pudo leer el historial de ejemplos recientes.", error);
+            recientes = {};
+        }
+    }
+    const ultimo = recientes[String(tema.id)];
+    const opciones = preguntas.length > 1 ? preguntas.filter((pregunta) => pregunta.id !== ultimo) : preguntas;
+    const ejemplo = opciones[Math.floor(Math.random() * opciones.length)];
+    recientes[String(tema.id)] = ejemplo.id;
+    localStorage.setItem(CLAVE_EJEMPLOS_RECIENTES, JSON.stringify(recientes));
+    return ejemplo;
 }
 
 function narrarLeccion(tema, dialogo) {
